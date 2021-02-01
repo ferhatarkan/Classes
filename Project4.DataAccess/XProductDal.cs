@@ -32,6 +32,7 @@ namespace Project4.DataAccess
         }
         public void Add(Product product)
         {
+            
             Console.WriteLine("X ile eklendi.");
         }
 
