@@ -22,7 +22,7 @@ namespace Inharitance
     {
         public void Add()
         {
-            Console.WriteLine("Eklendi.");
+            Console.WriteLine("Eklendi....");
         }
         public void Update()
         {
