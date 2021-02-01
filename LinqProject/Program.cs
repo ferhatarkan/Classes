@@ -27,10 +27,26 @@ namespace LinqProject
             //FindTest(products);
             //FindAllTest(products);
             //AscDescTest(products);
+            //ClassicLinqTest(products);
+
+            var result = from p in products
+                         join c in categories
+                         on p.CategoryId equals c.CategoryId
+                         where p.UnitPrice>5000
+                         orderby p.UnitPrice descending
+                         select new ProductDto {ProductId=p.ProductId,CategoryName=c.CategoryName,ProductName=p.ProductName,UnitPrice=p.UnitPrice };
+            foreach (var productDto in result)
+            {
+                Console.WriteLine("{0}-----{1}",productDto.ProductName,productDto.CategoryName);
+            }
+        }
+
+        private static void ClassicLinqTest(List<Product> products)
+        {
             var result = from p in products
                          where p.UnitPrice > 6000
-                         orderby p.UnitPrice descending,p.ProductName ascending
-                         select p;
+                         orderby p.UnitPrice descending, p.ProductName ascending
+                         select new ProductDto { ProductId = p.ProductId, ProductName = p.ProductName, UnitPrice = p.UnitPrice };
             foreach (var item in result)
             {
                 Console.WriteLine(item.ProductName);
@@ -88,6 +104,14 @@ namespace LinqProject
         {
              return products.Where(p => p.UnitPrice > 5000 && p.UnitInStock > 3).ToList();
         }
+    }
+    class ProductDto
+    {
+        //Data transformation object-Dto
+        public int ProductId { get; set; }
+        public string CategoryName { get; set; }
+        public string ProductName { get; set; }
+        public decimal UnitPrice { get; set; }
     }
     class Product
     {
