@@ -15,19 +15,19 @@ namespace Project4.DataAccess
             {
                 new Product{ProductId=1, ProductName="Acer X Bilgisayar",
                             QuantityPerUnit="32 Gb Ram ",
-                            UnitPrice=10000,UnitInStock=2},
+                            UnitPrice=10000,UnitsInStock=2},
                 new Product{ProductId=2, ProductName="Asus X Bilgisayar",
                             QuantityPerUnit="32 Gb Ram ",
-                            UnitPrice = 10000,UnitInStock=1},
+                            UnitPrice = 10000,UnitsInStock=1},
                 new Product{ProductId=3,ProductName="HP X Bilgisayar",
                             QuantityPerUnit="32 Gb Ram ",
-                            UnitPrice=10000,UnitInStock=0},
+                            UnitPrice=10000,UnitsInStock=0},
                 new Product{ProductId=4,ProductName="Mac X Bilgisayar",
                             QuantityPerUnit="32 Gb Ram ",
-                            UnitPrice=10000,UnitInStock=3},
+                            UnitPrice=10000,UnitsInStock=3},
                 new Product{ProductId=5,ProductName="Dell X Bilgisayar",
                             QuantityPerUnit="32 Gb Ram ",
-                            UnitPrice=10000,UnitInStock=10}
+                            UnitPrice=10000,UnitsInStock=10}
             };
         }
         public void Add(Product product)
@@ -46,7 +46,7 @@ namespace Project4.DataAccess
             return _products;
         }
 
-        public List<Product> GetById(int id)
+        public Product GetById(int id)
         {
             throw new NotImplementedException();
         }
